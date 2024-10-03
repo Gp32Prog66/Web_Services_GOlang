@@ -6,9 +6,9 @@ type desktop struct {
     Manufacturer  string  `json:"manufacturer"`
     OperatingSystem string  `json:"OperatingSystem"`
     Price  float64 `json:"price"`
-	RAM  float32 `json:"RAM"`
-	GPU string 	`json"GPU"`
-	Storage string `json"Storage"`
+	RAM  float32 `json:"ram"`
+	GPU string 	`json"gpu"`
+	Storage string `json"storage"`
 }
 
 //Insert Data
