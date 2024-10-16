@@ -12,17 +12,17 @@ type desktop struct {
     Manufacturer  string  `json:"manufacturer"`
     OperatingSystem string  `json:"operatingSystem"`
     Price  float64 `json:"price"`
-	RAM  float32 `json:"ram"`
-	GPU string 	`json"gpu"`
-	Storage string `json"storage"`
+	RAM  int `json:"ram"`
+	GPU string 	`json:"gpu"`
+	Storage string `json:"storage"`
 }
 
 //Insert Data
-var desktops []desktop {
-	{ID: "1", Manufacturer: "Dell", OperatingSystem: "Windows 11", Price: 1,249.99, RAM: 16, GPU: "NVIDIA GeForce RTX 4060", Storage: "1 TB"},
-	{ID: "2", Manufacturer: "ASUS", OperatingSystem: "Windows 10", Price: 1,449.99, RAM: 32, GPU: "NVIDIA GeForce RTX 4060 Ti", Storage: "2 TB"},
+var desktops = []desktop{
+	{ID: "1", Manufacturer: "Dell", OperatingSystem: "Windows 11", Price: 1249.99, RAM: 16, GPU: "NVIDIA GeForce RTX 4060", Storage: "1 TB"},
+	{ID: "2", Manufacturer: "ASUS", OperatingSystem: "Windows 10", Price: 1449.99, RAM: 32, GPU: "NVIDIA GeForce RTX 4060 Ti", Storage: "2 TB"},
 	{ID: "3", Manufacturer: "Lenovo", OperatingSystem: "Windows 10", Price: 999.99, RAM: 16, GPU: "AMD Radeon RX 7600", Storage: "1 TB"},
-	{ID: "4", Manufacturer: "HP", OperatingSystem: "Windows 11", Price: 1,499.00, RAM: 32, GPU: "AMD Radeon RX 6300", Storage: "1 TB"},
+	{ID: "4", Manufacturer: "HP", OperatingSystem: "Windows 11", Price: 1499.00, RAM: 32, GPU: "AMD Radeon RX 6300", Storage: "1 TB"},
 }
 
 //Get Desktops as JSON
@@ -30,8 +30,7 @@ func getDesktops(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, desktops)
 }
 
-func postDesktops(c *gin.Context)
-{
+func postDesktops(c *gin.Context) {
 	var newDesktop desktop
 	
 	//BindJSON
@@ -48,9 +47,9 @@ func postDesktops(c *gin.Context)
 func getDesktopsByOS(c *gin.Context) {
 	operatingSystem := c.Param("id")
 
-	/for _, x := range desktops {
+	for _, x := range desktops {
 		if x.OperatingSystem == operatingSystem {
-			c.IndentedJSON(http.StatusOk, a)
+			c.IndentedJSON(http.StatusOK, x)
 			return
 		}
 	}
