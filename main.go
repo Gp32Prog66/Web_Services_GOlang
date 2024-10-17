@@ -46,23 +46,30 @@ func postDesktops(c *gin.Context) {
 	c.IndentedJSON(http.StatusCreated, newDesktop)
 }
 
+//Gather Manufacturer of Each Desktop
 func getDesktopsByManufacturer(c *gin.Context) {
 	manufacturer := c.Param("manufacturer")
 
+	//Display Desktops
 	for _, x := range desktops {
 		if x.Manufacturer == manufacturer {
 			c.IndentedJSON(http.StatusOK, x)
 			return
 		}
 	}
-	c.IndentedJSON(http.StatusNotFound, gin.H{"message": "Operating System Couldn't be Found"})
+	c.IndentedJSON(http.StatusNotFound, gin.H{"message": "Desktop Manufacturer Couldn't be Found"})
 }
 
 func main() {
+
+	//Use gin package
 	router := gin.Default()
+
+	//GET and POST Methods for Desktops
 	router.GET("/desktops", getDesktops)
 	router.GET("/desktops/:manufacturer", getDesktopsByManufacturer)
 	router.POST("/desktops", postDesktops)
 
+	//Run on Port 7000
 	router.Run("localhost:7000")
 }
