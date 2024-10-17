@@ -15,4 +15,4 @@ curl http://localhost:7000/desktops/"Lenovo"'
 curl http://localhost:7000/desktops/"ASUS"'
 
 # Source
-* nd. (n.d.). Tutorial: Developing a restful API with go and gin. Go. https://go.dev/doc/tutorial/web-service-gin* 
+*nd. (n.d.). Tutorial: Developing a restful API with go and gin. Go. https://go.dev/doc/tutorial/web-service-gin* 
