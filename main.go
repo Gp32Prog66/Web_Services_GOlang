@@ -19,10 +19,10 @@ type desktop struct {
 
 //Insert Data
 var desktops = []desktop{
-	{ID: "1", Manufacturer: "Dell", OperatingSystem: "Windows 11", Price: 1249.99, RAM: 16, GPU: "NVIDIA GeForce RTX 4060", Storage: "1 TB"},
-	{ID: "2", Manufacturer: "ASUS", OperatingSystem: "Windows 10", Price: 1449.99, RAM: 32, GPU: "NVIDIA GeForce RTX 4060 Ti", Storage: "2 TB"},
-	{ID: "3", Manufacturer: "Lenovo", OperatingSystem: "Windows 10", Price: 999.99, RAM: 16, GPU: "AMD Radeon RX 7600", Storage: "1 TB"},
-	{ID: "4", Manufacturer: "HP", OperatingSystem: "Windows 11", Price: 1499.00, RAM: 32, GPU: "AMD Radeon RX 6300", Storage: "1 TB"},
+	{ID: "1", Manufacturer: "Dell", OperatingSystem: "Windows11", Price: 1249.99, RAM: 16, GPU: "NVIDIA GeForce RTX 4060", Storage: "1 TB"},
+	{ID: "2", Manufacturer: "ASUS", OperatingSystem: "Windows10", Price: 1449.99, RAM: 32, GPU: "NVIDIA GeForce RTX 4060 Ti", Storage: "2 TB"},
+	{ID: "3", Manufacturer: "Lenovo", OperatingSystem: "Windows10", Price: 999.99, RAM: 16, GPU: "AMD Radeon RX 7600", Storage: "1 TB"},
+	{ID: "4", Manufacturer: "HP", OperatingSystem: "Windows11", Price: 1499.00, RAM: 32, GPU: "AMD Radeon RX 6300", Storage: "1 TB"},
 }
 
 
@@ -46,11 +46,11 @@ func postDesktops(c *gin.Context) {
 	c.IndentedJSON(http.StatusCreated, newDesktop)
 }
 
-func getDesktopsByOS(c *gin.Context) {
-	operatingSystem := c.Param("operatingSystem")
+func getDesktopsByManufacturer(c *gin.Context) {
+	manufacturer := c.Param("manufacturer")
 
 	for _, x := range desktops {
-		if x.OperatingSystem == operatingSystem {
+		if x.Manufacturer == manufacturer {
 			c.IndentedJSON(http.StatusOK, x)
 			return
 		}
@@ -61,7 +61,7 @@ func getDesktopsByOS(c *gin.Context) {
 func main() {
 	router := gin.Default()
 	router.GET("/desktops", getDesktops)
-	router.GET("/desktops/:operatingSystem", getDesktopsByOS)
+	router.GET("/desktops/:operatingSystem", getDesktopsByManufacturer)
 	router.POST("/desktops", postDesktops)
 
 	router.Run("localhost:7000")
