@@ -25,6 +25,8 @@ var desktops = []desktop{
 	{ID: "4", Manufacturer: "HP", OperatingSystem: "Windows 11", Price: 1499.00, RAM: 32, GPU: "AMD Radeon RX 6300", Storage: "1 TB"},
 }
 
+
+
 //Get Desktops as JSON
 func getDesktops(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, desktops)
@@ -59,7 +61,7 @@ func getDesktopsByOS(c *gin.Context) {
 func main() {
 	router := gin.Default()
 	router.GET("/desktops", getDesktops)
-	router.GET("/desktops", getDesktopsByOS)
+	router.GET("/desktops/:operatingSystem", getDesktopsByOS)
 	router.POST("/desktops", postDesktops)
 
 	router.Run("localhost:7000")
