@@ -7,4 +7,12 @@ To gather the information, you will need to open up your command prompt/terminal
 ## Example
 'curl http://localhost:7000/desktops' 
 'curl http://localhost:7000/desktops \\'
-'curl http://localhost:7000/desktops/"Windows 11"'
+
+### Gather Manufacturer
+'curl http://localhost:7000/desktops/"Dell"'
+curl http://localhost:7000/desktops/"HP"'
+curl http://localhost:7000/desktops/"Lenovo"'
+curl http://localhost:7000/desktops/"ASUS"'
+
+# Source
+*nd. (n.d.). Tutorial: Developing a restful API with go and gin. Go. https://go.dev/doc/tutorial/web-service-gin* 
