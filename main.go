@@ -61,7 +61,7 @@ func getDesktopsByManufacturer(c *gin.Context) {
 func main() {
 	router := gin.Default()
 	router.GET("/desktops", getDesktops)
-	router.GET("/desktops/:operatingSystem", getDesktopsByManufacturer)
+	router.GET("/desktops/:manufacturer", getDesktopsByManufacturer)
 	router.POST("/desktops", postDesktops)
 
 	router.Run("localhost:7000")
