@@ -6,5 +6,5 @@
 To gather the information, you will need to open up your command prompt/terminal and use the CURL command.
 ## Example
 'curl http://localhost:7000/desktops' 
-'curl http://localhost:7000/desktops \'
+'curl http://localhost:7000/desktops \\'
 'curl http://localhost:7000/desktops/"Windows 11"'
