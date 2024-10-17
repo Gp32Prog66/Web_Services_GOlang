@@ -45,7 +45,7 @@ func postDesktops(c *gin.Context) {
 }
 
 func getDesktopsByOS(c *gin.Context) {
-	operatingSystem := c.Param("id")
+	operatingSystem := c.Param("operatingSystem")
 
 	for _, x := range desktops {
 		if x.OperatingSystem == operatingSystem {
